@@ -7,7 +7,13 @@
     <title>Home</title>
 </head>
 <body>
-<h1>Hello</h1>
+<h1 th:text="|Hello hello ${appName}|">app</h1>
 <p th:text="${mySpecialNumber}">mySpecialNumber</p>
+<p th:text="${55+77}">app</p>
+
+<a th:href="@{/about}">Naar About</a>
+<a th:href="@{/pay}">Naar Betalen</a>
+
+<h2 th:text="${appName}+' --- '+${appName}">appname</h2>
 </body>
 </html>
