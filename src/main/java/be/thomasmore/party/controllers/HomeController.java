@@ -3,6 +3,8 @@ package be.thomasmore.party.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
@@ -13,24 +15,51 @@ public class HomeController {
     private final String appName = "It's Partytime!";
     private final LocalDateTime time = LocalDateTime.now();
     private final LocalDateTime deadline = time.plusDays(30);
+    private String correctTime = time.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+    private String correctDeadline = deadline.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 
 
     @GetMapping({"/", "/home"})
     public String home(Model model) {
-        model.addAttribute("mySpecialNumber",mySpecialNumber);
-        model.addAttribute("appName",appName);
+        model.addAttribute("mySpecialNumber", mySpecialNumber);
+        model.addAttribute("appName", appName);
         return "home";
     }
+
     @GetMapping("/about")
-    public String about(Model model){
-        model.addAttribute("mySpecialNumber",mySpecialNumber);
+    public String about(Model model) {
+        model.addAttribute("mySpecialNumber", mySpecialNumber);
         return "about";
+        //about.html zal gegenereerd worden
     }
+
     @GetMapping("/pay")
-    public String pay(Model model){
-        time.format(DateTimeFormatter.ofPattern("PatternRegex"));
-        model.addAttribute("tijd",time);
+    public String pay(Model model) {
+        model.addAttribute("tijd", correctTime);
+        model.addAttribute("deadline", correctDeadline);
         return "pay";
+    }
+
+    @GetMapping({"/venuedetails/{venueName}", "/venuedetails"})
+    public String venueDetails(Model model, @PathVariable String venueName) {
+        model.addAttribute("venueName", venueName);
+        return "venuedetails";
+    }
+
+    /*@GetMapping({"/venuedetails/{venueIndex}", "/venuedetails"})
+    public String venueDetails(Model model, @PathVariable(required = false) Double venueIndex){
+        if (venueIndex != null && venueNames.length > Math.floor(venueIndex) && Math.floor(venueIndex) >= 0) {
+            String venue = venueNames[(int)Math.floor(venueIndex)];
+            model.addAttribute("venueName", venue);
+        } else {
+            model.addAttribute("venueName", "Choose a number between 0 and " + (venueNames.length-1));
+        }
+        model.addAttribute("venueIndexMax", venueNames.length-1);
+        return "venuedetails";
+    }*/
+    @GetMapping("/venuelist")
+    public String venueList(Model model) {
+        return "venuelist";
     }
 }
 
