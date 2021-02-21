@@ -4,14 +4,55 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm.min.css"/>
     <title>Venue List</title>
+
+    <style>
+        main{
+            background-color: lightgray;
+            color: #22222;
+        }
+
+        a{
+            color: #f04c25;
+            font-family: Helvetica;
+            font-size: 60px;
+            font-weight: 600;
+        }
+
+    </style>
+
 </head>
 <body>
-<nav>
-    <a th:href="@{/home}">Home</a>
-    <a th:href="@{/venuelist}">Venue List</a>
-    <a th:href="@{/about}">About</a>
-</nav>
+
+<h2><strong>VENUE LIST</strong></h2>
+
+/* =====NAVIGATIEBALK===== */
+<div class="nav-wrapper">
+    <div class="left-side">
+        <div class="nav-link-wrapper active-nav-link">
+            <a th:href="@{/home}">Home</a>
+        </div>
+
+        <div class="nav-link-wrapper">
+            <a th:href="@{/about}">About</a>
+        </div>
+
+        <div class="nav-link-wrapper">
+            <a th:href="@{/venue}">Venue</a>
+        </div>
+
+        <div class="nav-link-wrapper">
+            <a th:href="@{/venuelist}">VenueList</a>
+        </div>
+
+        <div class="nav-link-wrapper">
+            <a th:href="@{/pay}">Pay</a>
+        </div>
+
+    </div>
+</div>
+
 <ul>
     <li><a th:href="@{/venuedetails/De%20Loods}">De Loods</a></li>
     <li><a th:href="@{/venuedetails/De%20Carr%C3%A9}">De Carré</a></li>

@@ -5,15 +5,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+
+    <style>
+        body{
+            background-color: lightgray;
+        }
+
+        h1{
+            font-size: 80px;
+            font-family: "SansSerif";
+        }
+
+        .nav-wrapper{
+            display: flex;
+            justify-content: space-between;
+            padding: 40px;
+        }
+
+        .nav-link-wrapper{
+            font-size: 20px;
+            font-family: SansSerif;
+            color: red;
+        }
+
+    </style>
 </head>
 <body>
-<h1 th:text="|Hello hello ${appName}|">app</h1>
-<p th:text="${mySpecialNumber}">mySpecialNumber</p>
-<p th:text="${55+77}">app</p>
 
-<a th:href="@{/about}">Naar About</a>
-<a th:href="@{/pay}">Naar Betalen</a>
+<h1>Let's Party!</h1>
 
-<h2 th:text="${appName}+' --- '+${appName}">appname</h2>
+/* =====NAVIGATIEBALK===== */
+<div class="nav-wrapper">
+    <div class="left-side">
+        <div class="nav-link-wrapper active-nav-link">
+            <a th:href="@{/home}">Home</a>
+        </div>
+
+        <div class="nav-link-wrapper">
+            <a th:href="@{/about}">About</a>
+        </div>
+
+        <div class="nav-link-wrapper">
+            <a th:href="@{/venue}">Venue</a>
+        </div>
+
+        <div class="nav-link-wrapper">
+            <a th:href="@{/venuelist}">VenueList</a>
+        </div>
+
+        <div class="nav-link-wrapper">
+            <a th:href="@{/pay}">Pay</a>
+        </div>
+
+    </div>
+</div>
+
+<h3 th:text="|Hello hello ${appName}|">app</h3>
+
 </body>
 </html>

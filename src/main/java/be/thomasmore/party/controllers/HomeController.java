@@ -18,7 +18,6 @@ public class HomeController {
     private String correctTime = time.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
     private String correctDeadline = deadline.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 
-
     @GetMapping({"/", "/home"})
     public String home(Model model) {
         model.addAttribute("mySpecialNumber", mySpecialNumber);
@@ -40,9 +39,9 @@ public class HomeController {
         return "pay";
     }
 
-    @GetMapping({"/venuedetails/{venueName}", "/venuedetails"})
-    public String venueDetails(Model model, @PathVariable String venueName) {
-        model.addAttribute("venueName", venueName);
+    @GetMapping("/venuedetails/{venueName}")
+    public String venueDetails(Model model, @PathVariable(required = false) String venueName) {
+        model.addAttribute("venueName", (venueName!=null) ? venueName : "No venue chosen!");
         return "venuedetails";
     }
 
@@ -57,9 +56,16 @@ public class HomeController {
         model.addAttribute("venueIndexMax", venueNames.length-1);
         return "venuedetails";
     }*/
+
     @GetMapping("/venuelist")
     public String venueList(Model model) {
         return "venuelist";
     }
+
+    /*@GetMapping("/venuedetailsbyindex/{index}")
+    public String venueDetailsByIndex(Model model, @PathVariable int index){
+        model.addAttribute("venueName", index >= 0 && index < venueNames.length ? venueNames : null);
+        return "venuedetails";
+    }*/
 }
 

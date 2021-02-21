@@ -7,6 +7,33 @@
     <title>Venues</title>
 </head>
 <body>
+
+/* =====NAVIGATIEBALK===== */
+<div class="nav-wrapper">
+    <div class="left-side">
+        <div class="nav-link-wrapper active-nav-link">
+            <a th:href="@{/home}">Home</a>
+        </div>
+
+        <div class="nav-link-wrapper">
+            <a th:href="@{/about}">About</a>
+        </div>
+
+        <div class="nav-link-wrapper">
+            <a th:href="@{/venue}">Venue</a>
+        </div>
+
+        <div class="nav-link-wrapper">
+            <a th:href="@{/venuelist}">VenueList</a>
+        </div>
+
+        <div class="nav-link-wrapper">
+            <a th:href="@{/pay}">Pay</a>
+        </div>
+
+    </div>
+</div>
+
     <div class="row1">
         <div class=""row1content>
             <h2><p th:text="${venueName}">venue</p></h2>

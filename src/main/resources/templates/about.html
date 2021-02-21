@@ -7,7 +7,34 @@
     <title>Title</title>
 </head>
 <body>
-<h1>About</h1>
+<h1>ABOUT</h1>
+
+/* =====NAVIGATIEBALK===== */
+<div class="nav-wrapper">
+    <div class="left-side">
+        <div class="nav-link-wrapper active-nav-link">
+            <a th:href="@{/home}">Home</a>
+        </div>
+
+        <div class="nav-link-wrapper">
+            <a th:href="@{/about}">About</a>
+        </div>
+
+        <div class="nav-link-wrapper">
+            <a th:href="@{/venue}">Venue</a>
+        </div>
+
+        <div class="nav-link-wrapper">
+            <a th:href="@{/venuelist}">VenueList</a>
+        </div>
+
+        <div class="nav-link-wrapper">
+            <a th:href="@{/pay}">Pay</a>
+        </div>
+
+    </div>
+</div>
+
 <p th:text="${mySpecialNumber}">mySpecialNumber</p>
 </body>
 </html>
